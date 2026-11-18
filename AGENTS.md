@@ -7,7 +7,7 @@
 - `docs/潛水艇外殼3D列印需求文件.md`：規格之源（目前 v5.1），§13 為完整災難重建腳本。
 - `docs/建模日誌.md`：每次建模後必須新增條目（背景/決策/量測表）。
 - `screenshots/`：截圖統一存放，命名 `YYYYMMDD_視角_描述.png`。
-- `CONTEXT.md`：交接文件，任務完成後更新。
+- `tasks/todo.md`：交接文件（≤100 行），任務完成後更新。
 
 ## 建模規則（FreeCAD MCP）
 
@@ -15,7 +15,7 @@
 - 工作流程：讀需求文件 → 更新文件 → Pre-flight（list_documents、baseline BoundBox）→ 建模 →
   驗證（Solids=1 / isValid / BoundBox / 數值探針）→ 截圖 ≥4 視角 → 匯出 STL → 更新日誌。
 - 每個特徵步驟後檢查 `isValid` 與 `Solids==1`，異常立即停（參考 §13 腳本的 `chk()`）。
-- **等半徑曲面相切必偏移 0.1mm**（見 CONTEXT.md 血淚教訓 #1）。
+- **等半徑曲面相切必偏移 0.1mm**（見 tasks/lessons.md、tasks/todo.md 改模前必讀 #1）。
 - **艙內特徵（平臺/棚架/凹槽/電池艙）必須在所有 `cut bore()` 之後建，之後嚴禁再 cut bore()**（教訓 #5）。
 - fillet 只能對「未布林的乾淨原始體」做（如馬達臂 box），禁止對布林後複雜體。
 - **螺旋幾何（螺紋）布林會靜默失敗**（教訓 #8）：螺紋與芯柱必須 **fuzzy fuse(0.05)** 並斷言
